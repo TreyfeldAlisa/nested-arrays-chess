@@ -31,16 +31,21 @@ function renderChessboard() {
         'Ч Пешка': '♟'
     }
     let boards = generateChessboard();
-    return boards = boards.map((el) => {
-        for (let i = 0; i < el.length; i += 1){
-            if (emojis[el[i]]) {
-                el[i] = emojis[el[i]]
-            } 
-            else {
-                el[i] = null
-            }
-        } return el.join('')
-    }). join('\n')
+    // return boards = boards.map((el) => {
+    //     for (let i = 0; i < el.length; i += 1){
+    //         if (emojis[el[i]]) {
+    //             el[i] = emojis[el[i]]
+    //         } 
+    //         else {
+    //             el[i] = null
+    //         }
+    //     } return el.join('')
+    // }). join('\n')
+    return boards.map((el) => el.map((chess) => {
+            if (emojis[chess]) {chess = emojis[chess]}
+            else {chess = null}
+            return chess
+        }).join('')).join('\n')
 }
 console.log(renderChessboard())
 module.exports = {generateChessboard, renderChessboard};
