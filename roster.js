@@ -10,7 +10,11 @@ const points = {
 }
 
 function generateRoster() {
-// Код тут.
+    let roster = [[['Number'], ['Name'], ['Position'], ['Points per Game']]];
+    for (let i = 0; i <= roster[0].length; i += 1){
+		roster.push([numbers[i], names[i], positions[i], points[numbers[i]]])
+	} 
+	return roster
 }
-
+console.log(generateRoster())
 module.exports = {generateRoster};
